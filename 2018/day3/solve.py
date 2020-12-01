@@ -22,21 +22,19 @@ def solve_part1():
     for claim in claims:
         fabric[claim[0]:claim[2], claim[1]:claim[3]] += 1
 
-    two_or_more = fabric >= 2
+    two_or_more = fabric > 1
     print(two_or_more.sum())
 
 
 def solve_part2():
     claims = read_input()
     fabric = np.zeros((1000, 1000))
-    claim_array = fabric.copy()
     for claim in claims:
         fabric[claim[0]:claim[2], claim[1]:claim[3]] += 1
 
     for id_, claim in enumerate(claims):
-        claim_array *= 0
-        claim_array[claim[0]:claim[2], claim[1]:claim[3]] += 1
-        if np.array_equal(claim_array * fabric, claim_array):
+        w, h = claim[2] - claim[0], claim[3] - claim[1]
+        if fabric[claim[0]:claim[2], claim[1]:claim[3]].sum() == w * h:
             print(id_ + 1)
 
 
