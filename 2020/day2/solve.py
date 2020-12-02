@@ -26,9 +26,8 @@ def read_input():
 
 
 def solve_part1(input_):
-    input_pwds = read_input()
     num_valid = 0
-    for input_pwd in input_pwds:
+    for input_pwd in input_:
         pwd = list(input_pwd[-1])
         letter_count = len([s for s in pwd if s == input_pwd[2]])
         if letter_count >= input_pwd[0] and letter_count <= input_pwd[1]:
@@ -38,9 +37,8 @@ def solve_part1(input_):
 
 
 def solve_part2(input_):
-    input_pwds = read_input()
     num_valid = 0
-    for input_pwd in input_pwds:
+    for input_pwd in input_:
         pwd = list(input_pwd[-1])
         if (pwd[input_pwd[0] - 1] == input_pwd[2]) and \
                 (pwd[input_pwd[1] - 1] != input_pwd[2]):
