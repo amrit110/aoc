@@ -1,8 +1,6 @@
 ![aoc text](assets/aoc_text.png)
 
 --------------------------------------------------------------------------------
-Advent of Code
-
 
 * Setup python virtual environment:
 
