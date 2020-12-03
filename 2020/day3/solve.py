@@ -32,8 +32,7 @@ def read_input():
 
 
 def solve_part1(input_):
-    i = 0
-    j = 0
+    i, j = 0, 0
     s = 0
     while (i < input_.shape[0] and j < input_.shape[1]):
         if input_[i][j] == -1:
