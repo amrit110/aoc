@@ -103,7 +103,6 @@ def validate_fields(passport):
 
 def solve_part2(input_):
     num_valid = 0
-    VALID_KEYS = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid', 'cid']
     for i, passport in enumerate(input_):
         keys = passport.keys()
         is_valid = set(keys) & set(VALID_KEYS)
