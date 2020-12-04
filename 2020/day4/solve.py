@@ -105,14 +105,11 @@ def solve_part2(input_):
     for i, passport in enumerate(input_):
         keys = passport.keys()
         is_valid = set(keys) & set(valid_keys)
-        if len(is_valid) == 8:
-            is_valid_fields = validate_fields(passport)
-            if is_valid_fields:
-                num_valid += 1
-        elif (len(is_valid) == 7) and ('cid' not in is_valid):
-            is_valid_fields = validate_fields(passport)
-            if is_valid_fields:
-                num_valid += 1
+        if len(is_valid) == 8 and validate_fields(passport):
+            num_valid += 1
+        elif (len(is_valid) == 7) and ('cid' not in is_valid) and \
+                validate_fields(passport):
+            num_valid += 1
 
     print(num_valid)
 
