@@ -3,6 +3,13 @@
 from os.path import dirname, realpath, join
 
 
+# constants
+VALID_KEYS = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid', 'cid']
+NUMERIC = [str(i) for i in list(range(10))]
+VALID_HC = NUMERIC + ['a', 'b', 'c', 'd', 'e', 'f']
+VALID_EC = ['amb', 'blu', 'brn', 'gry', 'grn', 'hzl', 'oth']
+
+
 def transform_input(input_):
     # custom transform for the day
     input_ = input_.splitlines()
@@ -34,10 +41,9 @@ def read_input():
 
 def solve_part1(input_):
     num_valid = 0
-    valid_keys = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid', 'cid']
     for i, passport in enumerate(input_):
         keys = passport.keys()
-        is_valid = set(keys) & set(valid_keys)
+        is_valid = set(keys) & set(VALID_KEYS)
         if len(is_valid) == 8:
             num_valid += 1
         elif (len(is_valid) == 7) and ('cid' not in is_valid):
@@ -54,10 +60,6 @@ def validate_fields(passport):
     hair_color = passport['hcl']
     eye_color = passport['ecl']
     passport_id = passport['pid']
-
-    numeric = [str(i) for i in list(range(10))]
-    valid_hc = numeric + ['a', 'b', 'c', 'd', 'e', 'f']
-    valid_ec = ['amb', 'blu', 'brn', 'gry', 'grn', 'hzl', 'oth']
 
     if not 1920 <= birth_yr <= 2002:
         return False
@@ -83,17 +85,17 @@ def validate_fields(passport):
     if len(hc) != 6:
         return False
     for hc_i in hc:
-        if hc_i not in valid_hc:
+        if hc_i not in VALID_HC:
             return False
     
-    if eye_color not in valid_ec:
+    if eye_color not in VALID_EC:
         return False
 
     if len(passport_id) != 9:
         return False
 
     for n in passport_id:
-        if n not in numeric:
+        if n not in NUMERIC:
             return False
 
     return True
@@ -101,10 +103,10 @@ def validate_fields(passport):
 
 def solve_part2(input_):
     num_valid = 0
-    valid_keys = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid', 'cid']
+    VALID_KEYS = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid', 'cid']
     for i, passport in enumerate(input_):
         keys = passport.keys()
-        is_valid = set(keys) & set(valid_keys)
+        is_valid = set(keys) & set(VALID_KEYS)
         if len(is_valid) == 8 and validate_fields(passport):
             num_valid += 1
         elif (len(is_valid) == 7) and ('cid' not in is_valid) and \
