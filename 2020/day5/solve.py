@@ -87,16 +87,8 @@ def gen_all_passes():
 
 def solve_part2(input_):
     all_passes = gen_all_passes()
-    all_ids = []
+    all_ids = gen_seat_ids(all_passes)
     
-    for pass_ in all_passes:
-        row_code = pass_[0:7]
-        col_code = pass_[7:]
-        row = find_row(row_code)
-        col = find_col(col_code)
-        seat_ID = row * 8 + col
-        all_ids.append(seat_ID)
-
     seat_ids = gen_seat_ids(input_)
 
     missing = []
