@@ -3,14 +3,20 @@
 --------------------------------------------------------------------------------
 
 
-## Advent of Code data - Python package
-To use the [aocd package](https://github.com/wimglenn/advent-of-code-data)
-to fetch input, export your session ID:
+## Template solution
+To quickstart or bootstrap a solution script in python, 
+
+```bash
+./bootstrap.py -y <year> -d <day>
+```
+
+That creates a folder for <year>/<day> and copy `template.py`. It also 
+has functionality to use the [aocd package](https://github.com/wimglenn/advent-of-code-data)
+to fetch input for the given day. To use it, export your session ID:
 
 ```bash
 export AOC_SESSION=<session_id>
 ```
-
 
 ### Retrieving session id
 It's stored in a cookie on your machine <img src="https://pbs.twimg.com/profile_images/1092451626781163523/0YzJMi-8.jpg" height="30px"/>
