@@ -10,7 +10,7 @@ To quickstart or bootstrap a solution script in python,
 ./bootstrap.py -y <year> -d <day>
 ```
 
-That creates a folder for <year>/<day> and copy `template.py`. It also 
+That creates a folder `<year>/<day>` and copies `template.py`. It also 
 has functionality to use the [aocd package](https://github.com/wimglenn/advent-of-code-data)
 to fetch input for the given day. To use it, export your session ID:
 
