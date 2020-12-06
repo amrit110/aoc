@@ -13,4 +13,4 @@ export AOC_SESSION=<session_id>
 
 
 ### Retrieving session id
-It's stored in a cookie on your machine.
+It's stored in a cookie on your machine <img src="https://pbs.twimg.com/profile_images/1092451626781163523/0YzJMi-8.jpg" height="30px"/>
