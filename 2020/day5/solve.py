@@ -2,8 +2,6 @@
 
 from os.path import dirname, realpath, join
 import itertools
-from collections import deque
-import numpy as np
 
 
 def transform_input(input_):
