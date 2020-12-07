@@ -19,7 +19,8 @@ def transform_input(input_):
 
         if dst_bags[0] == 'noother':
             dst_bags = []
-        dst_bags = [(int(d[0].strip()), d[1:]) for d in dst_bags]
+        
+        dst_bags = [(int(d[0]), d[1:]) for d in dst_bags]
         bags[src_bag_color] = dst_bags
 
     return bags
