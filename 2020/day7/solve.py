@@ -8,22 +8,22 @@ import re
 def transform_input(input_):
     # custom transform for the day
     input_ = input_.splitlines()
-    bags = defaultdict(list)
+    bags_map = defaultdict(list)
 
     for line in input_:
         line = ''.join(line.split())
-        src_bag_color = line.split('contain')[0]
-        src_bag_color = re.sub('bags', '', src_bag_color)
-        dst_bags = line.split('contain')[1].split(',')
-        dst_bags = [re.sub('bag*.*', '', d) for d in dst_bags]
+        bag, bags_in_bag = line.split('contain')
+        bag = re.sub('bags', '', bag)
+        bags_in_bag = bags_in_bag.split(',')
+        bags_in_bag = [re.sub('bag*.*', '', b) for b in bags_in_bag]
 
-        if dst_bags[0] == 'noother':
-            dst_bags = []
+        if bags_in_bag[0] == 'noother':
+            bags_in_bag = []
         
-        dst_bags = [(int(d[0]), d[1:]) for d in dst_bags]
-        bags[src_bag_color] = dst_bags
+        bags_in_bag = [(int(b[0]), b[1:]) for b in bags_in_bag]
+        bags_map[bag] = bags_in_bag
 
-    return bags
+    return bags_map
 
 
 def read_input():
