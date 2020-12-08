@@ -33,6 +33,7 @@ def run_program(instructions, instruction_pointer, visited_instructions, acc_glo
 
     instruction, val = instructions[instruction_pointer]
     visited_instructions.add(instruction_pointer)
+    
     if instruction == 'acc':
         acc_global += val
         instruction_pointer += 1
