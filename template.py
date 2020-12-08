@@ -4,6 +4,7 @@ from os.path import dirname, realpath, join
 
 
 def transform_input(input_):
+    input_ = input_.splitlines()
     # custom transform for the day
 
     return input_
