@@ -1,5 +1,3 @@
-
-
 def read_input(input_file):
     with open(input_file, "r") as f:
         return [int(i.strip()) for i in f.read().split(",")]

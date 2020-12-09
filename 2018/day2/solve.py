@@ -1,5 +1,3 @@
-
-
 def read_input():
     with open("input.txt", "r") as f:
         inp = f.read().splitlines()
