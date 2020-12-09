@@ -39,6 +39,7 @@ def solve(input_):
                 break
         if not valid:
             invalid_num = next_num
+            break
 
         start += 1
         end += 1
