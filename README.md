@@ -1,7 +1,8 @@
 # [![](https://adventofcode.com/favicon.png)![aoc text](assets/aoc_text.png)](https://adventofcode.com/)
 
 --------------------------------------------------------------------------------
-
+![Python](https://github.com/amrit110/aoc/workflows/Python/badge.svg)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 ## Template solution
 To quickstart or bootstrap a solution script in python, 
