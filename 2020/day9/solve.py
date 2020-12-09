@@ -43,11 +43,13 @@ def solve(input_):
         start += 1
         end += 1
 
-    print(invalid_num, f'time elapsed: {time.time() - start_time}')
+    elapsed_time = (time.time() - start_time) * 1e3
+    print(invalid_num, f'time elapsed: {elapsed_time} ms')
     start_time = time.time()
     start, end = find_contiguous_sum(input_, len(input_), invalid_num)
     range_ = input_[start:end]
-    print(min(range_) + max(range_), f'time elapsed: {time.time() - start_time}')
+    elapsed_time = (time.time() - start_time) * 1e3
+    print(min(range_) + max(range_), f'time elapsed: {elapsed_time} ms')
 
 
 def find_contiguous_sum(nums, n, sum_):
