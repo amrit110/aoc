@@ -1,14 +1,12 @@
-import math
 from itertools import permutations
 
 
 def read_input(input_file):
-    with open(input_file, 'r') as f:
-        return [int(i.strip()) for i in f.read().split(',')]
+    with open(input_file, "r") as f:
+        return [int(i.strip()) for i in f.read().split(",")]
 
 
 class Intcode:
-
     def __init__(self, program, amp_phase):
         self.program = program
         self.amp_phase = amp_phase
@@ -38,8 +36,8 @@ class Intcode:
         elif mode == 1:
             return x
 
-    def run(self):
-        opcode = '{:05}'.format(self.program[self.opcode_idx])
+    def run(self):  # noqa: C901
+        opcode = "{:05}".format(self.program[self.opcode_idx])
         # print('DEBUG ', opcode, self.program)
         mode3, mode2, mode1, opcode = self.parse_opcode(opcode)
 
@@ -128,7 +126,7 @@ class Intcode:
 
 
 def solve_part1():
-    program_orig = read_input('input.txt')
+    program_orig = read_input("input.txt")
     max_output_so_far = 0
     for phase_seq in permutations(range(5)):
         amp_input = 0
@@ -144,17 +142,17 @@ def solve_part1():
 
 
 def solve_part2():
-    program_orig = read_input('input.txt')
+    program_orig = read_input("input.txt")
     max_output_so_far = 0
-    
+
     for phase_seq in permutations(range(5, 10)):
         amp_input = 0
         amplifiers_iccs = []
-        
+
         # Initialize.
         for p in phase_seq:
             amplifiers_iccs.append(Intcode(program_orig.copy(), p))
-       
+
         idx = 0
         while True:
             in_amp_idx = idx % 5
@@ -163,7 +161,7 @@ def solve_part2():
             idx += 1
             halted = [a.halted for a in amplifiers_iccs]
 
-            if not False in halted:
+            if False not in halted:
                 break
 
         if out > max_output_so_far:
@@ -172,6 +170,6 @@ def solve_part2():
     return max_output_so_far
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(solve_part1())
     print(solve_part2())

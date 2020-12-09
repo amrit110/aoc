@@ -10,7 +10,7 @@ def transform_input(input_):
     persons = []
     last_line = len(input_)
     for i, line in enumerate(input_):
-        if line == '' or last_line == i + 1:
+        if line == "" or last_line == i + 1:
             groups.append(persons)
             persons = []
         else:
@@ -22,9 +22,9 @@ def transform_input(input_):
 
 def read_input():
     dir_path = dirname(realpath(__file__))
-    with open(join(dir_path, 'input.txt'), 'r') as f:
+    with open(join(dir_path, "input.txt"), "r") as f:
         input_ = f.read()
-        
+
     input_ = transform_input(input_)
 
     return input_
@@ -56,5 +56,5 @@ def main():
     solve_part2(input_)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -1,13 +1,11 @@
-import math
 
 
 def read_input(input_file):
-    with open(input_file, 'r') as f:
-        return [int(i.strip()) for i in f.read().split(',')]
+    with open(input_file, "r") as f:
+        return [int(i.strip()) for i in f.read().split(",")]
 
 
 class Intcode:
-    
     def __init__(self, program):
         self.program = program
 
@@ -27,7 +25,7 @@ class Intcode:
             res_pos = self.program[opcode_idx + 3]
 
             self.program[res_pos] = self.run_op(val1, val2, opcode)
-            
+
             opcode_idx += 4
             self.run(opcode_idx)
 
@@ -37,14 +35,14 @@ class Intcode:
 
 
 def solve_part1():
-    program = read_input('input.txt')
+    program = read_input("input.txt")
     program[1] = 12
     program[2] = 2
     print(Intcode(program)()[0])
 
 
 def solve_part2():
-    program = read_input('input.txt')
+    program = read_input("input.txt")
     for i in range(100):
         for j in range(100):
             program_input = program.copy()
@@ -55,6 +53,6 @@ def solve_part2():
                 print(100 * i + j)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     solve_part1()
     solve_part2()

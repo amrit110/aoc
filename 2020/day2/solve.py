@@ -8,8 +8,8 @@ def transform_input(input_):
     input_ = input_.splitlines()
     input_pwds = []
     for line in input_:
-        count, letter, pwd = line.replace(':', '').split()
-        low, high = count.split('-')
+        count, letter, pwd = line.replace(":", "").split()
+        low, high = count.split("-")
         input_pwds.append((int(low), int(high), letter, pwd))
 
     return input_pwds
@@ -17,9 +17,9 @@ def transform_input(input_):
 
 def read_input():
     dir_path = dirname(realpath(__file__))
-    with open(join(dir_path, 'input.txt'), 'r') as f:
+    with open(join(dir_path, "input.txt"), "r") as f:
         input_ = f.read()
-        
+
     input_ = transform_input(input_)
 
     return input_
@@ -40,11 +40,13 @@ def solve_part2(input_):
     num_valid = 0
     for input_pwd in input_:
         pwd = list(input_pwd[-1])
-        if (pwd[input_pwd[0] - 1] == input_pwd[2]) and \
-                (pwd[input_pwd[1] - 1] != input_pwd[2]):
+        if (pwd[input_pwd[0] - 1] == input_pwd[2]) and (
+            pwd[input_pwd[1] - 1] != input_pwd[2]
+        ):
             num_valid += 1
-        elif (pwd[input_pwd[0] - 1] != input_pwd[2]) and \
-                (pwd[input_pwd[1] - 1] == input_pwd[2]):
+        elif (pwd[input_pwd[0] - 1] != input_pwd[2]) and (
+            pwd[input_pwd[1] - 1] == input_pwd[2]
+        ):
             num_valid += 1
 
     print(num_valid)
@@ -56,5 +58,5 @@ def main():
     solve_part2(input_)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

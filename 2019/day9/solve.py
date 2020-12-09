@@ -1,13 +1,11 @@
-import math
 
 
 def read_input(input_file):
-    with open(input_file, 'r') as f:
-        return [int(i.strip()) for i in f.read().split(',')]
+    with open(input_file, "r") as f:
+        return [int(i.strip()) for i in f.read().split(",")]
 
 
 class Intcode:
-
     def __init__(self, program):
         self.memory = self.init_memory(program)
         self.instruction_pointer = 0
@@ -44,11 +42,14 @@ class Intcode:
             return self.memory[self.relative_base + x]
 
     def _get_write_pos(self, instruction_pointer, mode):
-        return self.memory[instruction_pointer] if mode == 0 else \
-                self.relative_base + self.memory[instruction_pointer]
+        return (
+            self.memory[instruction_pointer]
+            if mode == 0
+            else self.relative_base + self.memory[instruction_pointer]
+        )
 
-    def run(self):
-        opcode = '{:05}'.format(self.memory[self.instruction_pointer])
+    def run(self):  # noqa: C901
+        opcode = "{:05}".format(self.memory[self.instruction_pointer])
         mode3, mode2, mode1, opcode = self.parse_opcode(opcode)
 
         if opcode == 99:
@@ -129,15 +130,15 @@ class Intcode:
 
 
 def solve_part1():
-    program = read_input('input.txt')
+    program = read_input("input.txt")
     Intcode(program)()
 
 
 def solve_part2():
-    program = read_input('input.txt')
+    program = read_input("input.txt")
     Intcode(program)()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # solve_part1()
     solve_part2()

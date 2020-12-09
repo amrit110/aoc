@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 
 from os.path import dirname, realpath, join
-import numpy as np
 import time
 
 
 def transform_input(input_):
     input_ = input_.splitlines()
-    # custom transform for the day 
+    # custom transform for the day
     input_ = [int(num) for num in input_]
 
     return input_
@@ -15,9 +14,9 @@ def transform_input(input_):
 
 def read_input():
     dir_path = dirname(realpath(__file__))
-    with open(join(dir_path, 'input.txt'), 'r') as f:
+    with open(join(dir_path, "input.txt"), "r") as f:
         input_ = f.read()
-        
+
     input_ = transform_input(input_)
 
     return input_
@@ -45,12 +44,12 @@ def solve(input_):
         end += 1
 
     elapsed_time = (time.time() - start_time) * 1e3
-    print(invalid_num, f'time elapsed: {elapsed_time} ms')
+    print(invalid_num, f"time elapsed: {elapsed_time} ms")
     start_time = time.time()
     start, end = find_contiguous_sum(input_, len(input_), invalid_num)
     range_ = input_[start:end]
     elapsed_time = (time.time() - start_time) * 1e3
-    print(min(range_) + max(range_), f'time elapsed: {elapsed_time} ms')
+    print(min(range_) + max(range_), f"time elapsed: {elapsed_time} ms")
 
 
 def find_contiguous_sum(nums, n, sum_):
@@ -77,5 +76,5 @@ def main():
     solve(input_)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

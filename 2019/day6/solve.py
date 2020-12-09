@@ -1,19 +1,17 @@
-import math
 
 
 def read_input(input_file):
-    with open(input_file, 'r') as f:
+    with open(input_file, "r") as f:
         return f.read().splitlines()
 
 
 class Node:
-
     def __init__(self, name, parent=None):
         self.name = name
         self.parent = parent
 
     def __repr__(self):
-        return '{} - {}'.format(self.parent, self.name)
+        return "{} - {}".format(self.parent, self.name)
 
 
 def traverse_to_root(node):
@@ -32,7 +30,7 @@ def populate_orbit_map(map_data):
     orbit_map = dict()
 
     for orbit in map_data:
-        p, c = orbit.split(')')
+        p, c = orbit.split(")")
         if orbit_map.get(p) is None:
             orbit_map[p] = Node(p)
         if orbit_map.get(c) is None:
@@ -44,7 +42,7 @@ def populate_orbit_map(map_data):
 
 
 def solve_part1():
-    map_data = read_input('input.txt')
+    map_data = read_input("input.txt")
 
     orbit_map = populate_orbit_map(map_data)
 
@@ -57,12 +55,12 @@ def solve_part1():
 
 
 def solve_part2():
-    map_data = read_input('input.txt')
+    map_data = read_input("input.txt")
 
     orbit_map = populate_orbit_map(map_data)
 
-    no_you, com_to_you = traverse_to_root(orbit_map['YOU'])
-    no_san, com_to_san = traverse_to_root(orbit_map['SAN'])
+    no_you, com_to_you = traverse_to_root(orbit_map["YOU"])
+    no_san, com_to_san = traverse_to_root(orbit_map["SAN"])
     you_to_com = com_to_you[::-1]
     is_in_com_to_san = set(com_to_san)
 
@@ -80,6 +78,6 @@ def solve_part2():
     return num_transfers
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(solve_part1())
     print(solve_part2())

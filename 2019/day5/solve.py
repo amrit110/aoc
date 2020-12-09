@@ -1,13 +1,11 @@
-import math
 
 
 def read_input(input_file):
-    with open(input_file, 'r') as f:
-        return [int(i.strip()) for i in f.read().split(',')]
+    with open(input_file, "r") as f:
+        return [int(i.strip()) for i in f.read().split(",")]
 
 
 class Intcode:
-
     def __init__(self, program):
         self.program = program
 
@@ -31,8 +29,8 @@ class Intcode:
         elif mode == 1:
             return x
 
-    def run(self, opcode_idx=0):
-        opcode = '{:05}'.format(self.program[opcode_idx])
+    def run(self, opcode_idx=0):  # noqa: C901
+        opcode = "{:05}".format(self.program[opcode_idx])
         mode3, mode2, mode1, opcode = self.parse_opcode(opcode)
 
         if opcode == 99:
@@ -56,7 +54,6 @@ class Intcode:
             self.program[res_pos] = int(user_input)
 
             opcode_idx += 2
-
 
         elif opcode == 4:
             output = self.get_val(mode1, self.program[opcode_idx + 1])
@@ -109,14 +106,15 @@ class Intcode:
 
 
 def solve_part1():
-    program = read_input('input.txt')
+    program = read_input("input.txt")
     Intcode(program)()
 
 
 def solve_part2():
-    program = read_input('input.txt')
+    program = read_input("input.txt")
     Intcode(program)()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     solve_part1()
     solve_part2()

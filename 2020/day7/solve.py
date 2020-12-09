@@ -11,15 +11,15 @@ def transform_input(input_):
     bags_map = defaultdict(list)
 
     for line in input_:
-        line = ''.join(line.split())
-        bag, bags_in_bag = line.split('contain')
-        bag = re.sub('bags', '', bag)
-        bags_in_bag = bags_in_bag.split(',')
-        bags_in_bag = [re.sub('bag*.*', '', b) for b in bags_in_bag]
+        line = "".join(line.split())
+        bag, bags_in_bag = line.split("contain")
+        bag = re.sub("bags", "", bag)
+        bags_in_bag = bags_in_bag.split(",")
+        bags_in_bag = [re.sub("bag*.*", "", b) for b in bags_in_bag]
 
-        if bags_in_bag[0] == 'noother':
+        if bags_in_bag[0] == "noother":
             bags_in_bag = []
-        
+
         bags_in_bag = [(int(b[0]), b[1:]) for b in bags_in_bag]
         bags_map[bag] = bags_in_bag
 
@@ -28,9 +28,9 @@ def transform_input(input_):
 
 def read_input():
     dir_path = dirname(realpath(__file__))
-    with open(join(dir_path, 'input.txt'), 'r') as f:
+    with open(join(dir_path, "input.txt"), "r") as f:
         input_ = f.read()
-        
+
     input_ = transform_input(input_)
 
     return input_
@@ -39,7 +39,7 @@ def read_input():
 def recursive_search_part1(bag_color, bags_map, bags):
     count = 0
     bag_colors = set([bag[1] for bag in bags])
-    if ('shinygold' in bag_colors):
+    if "shinygold" in bag_colors:
         return 1
     else:
         for bag in bags:
@@ -65,12 +65,12 @@ def solve_part1(input_):
     bag_colors = list(input_.keys())
     for bc in bag_colors:
         count += recursive_search_part1(bc, input_, input_[bc])
-    
+
     print(count)
 
 
 def solve_part2(input_):
-    count = recursive_search_part2(input_, 'shinygold')
+    count = recursive_search_part2(input_, "shinygold")
     print(count)
 
 
@@ -80,5 +80,5 @@ def main():
     solve_part2(input_)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

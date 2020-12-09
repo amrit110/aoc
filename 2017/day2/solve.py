@@ -15,9 +15,9 @@ def transform_input(input_):
 
 def read_input():
     dir_path = dirname(realpath(__file__))
-    with open(join(dir_path, 'input.txt'), 'r') as f:
+    with open(join(dir_path, "input.txt"), "r") as f:
         input_ = f.read()
-        
+
     input_ = transform_input(input_)
 
     return input_
@@ -29,7 +29,7 @@ def solve_part1(input_):
     for nums in input_:
         smallest = min(nums)
         largest = max(nums)
-        checksum += (largest - smallest)
+        checksum += largest - smallest
 
     print(checksum)
 
@@ -39,7 +39,7 @@ def find_evenly_divisible(nums):
     for i in range(sz):
         for j in range(i + 1, sz):
             if nums[i] % nums[j] == 0:
-                return  int(nums[i] / nums[j])
+                return int(nums[i] / nums[j])
 
 
 def solve_part2(input_):
@@ -48,7 +48,7 @@ def solve_part2(input_):
     for nums in input_:
         nums = sorted(nums)[::-1]
         checksum += find_evenly_divisible(nums)
-    
+
     print(checksum)
 
 
@@ -58,5 +58,5 @@ def main():
     solve_part2(input_)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

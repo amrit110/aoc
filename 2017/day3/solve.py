@@ -14,28 +14,28 @@ def transform_input(input_):
 
 def read_input():
     dir_path = dirname(realpath(__file__))
-    with open(join(dir_path, 'input.txt'), 'r') as f:
+    with open(join(dir_path, "input.txt"), "r") as f:
         input_ = f.read()
-        
+
     input_ = transform_input(input_)
 
     return input_
 
 
-def move_right(x,y):
-    return x+1, y
+def move_right(x, y):
+    return x + 1, y
 
 
-def move_down(x,y):
-    return x, y-1
+def move_down(x, y):
+    return x, y - 1
 
 
-def move_left(x,y):
-    return x-1, y
+def move_left(x, y):
+    return x - 1, y
 
 
-def move_up(x,y):
-    return x, y+1
+def move_up(x, y):
+    return x, y + 1
 
 
 def gen_spiral_points(n):
@@ -78,7 +78,7 @@ def get_neighbours_sum(points_map, point):
     for neighbour in neighbours:
         neighbour_point = (point[0] + neighbour[0], point[1] + neighbour[1])
         s += points_map[neighbour_point]
-    
+
     return s
 
 
@@ -100,5 +100,5 @@ def main():
     solve_part2(input_)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

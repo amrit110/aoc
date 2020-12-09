@@ -2,7 +2,7 @@ from itertools import cycle
 
 
 def read_input():
-    with open('input.txt', 'r') as f:
+    with open("input.txt", "r") as f:
         inp = f.read().splitlines()
         inp = [int(i) for i in inp]
 
@@ -33,6 +33,6 @@ def solve_part2():
         seen_freq.add(s)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     solve_part1()
     solve_part2()

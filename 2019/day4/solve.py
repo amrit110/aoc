@@ -1,10 +1,8 @@
-
-
 def has_two_adjacent(pw):
     pw = str(pw)
     num_adj = 0
     for i in range(len(pw) - 1):
-        if pw[i] == pw[i+1]:
+        if pw[i] == pw[i + 1]:
             num_adj += 1
 
     if num_adj > 0:
@@ -52,6 +50,6 @@ def solve_part2():
     print(num)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     solve_part1()
     solve_part2()

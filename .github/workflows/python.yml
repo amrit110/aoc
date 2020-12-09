@@ -27,4 +27,4 @@ jobs:
         flake8 .
     - name: Black code matters
       run: |
-        black . --check --line-length 88
+        black . --check

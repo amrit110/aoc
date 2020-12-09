@@ -11,23 +11,23 @@ def transform_input(input_):
     input_ = sorted(input_.splitlines())
 
     for line in input_:
-        line = line.replace('[', '').replace(']', '')
-        minute = line.split()[1].split(':')[1]
-        if 'Guard' in line:
-            guard_id = int(line.split()[3].replace('#', ''))
-        if 'wakes' in line:
-            events[guard_id].append(('w', minute))
-        if 'sleep' in line:
-            events[guard_id].append(('s', minute))
+        line = line.replace("[", "").replace("]", "")
+        minute = line.split()[1].split(":")[1]
+        if "Guard" in line:
+            guard_id = int(line.split()[3].replace("#", ""))
+        if "wakes" in line:
+            events[guard_id].append(("w", minute))
+        if "sleep" in line:
+            events[guard_id].append(("s", minute))
 
     return events
 
 
 def read_input():
     dir_path = dirname(realpath(__file__))
-    with open(join(dir_path, 'input.txt'), 'r') as f:
+    with open(join(dir_path, "input.txt"), "r") as f:
         input_ = f.read()
-        
+
     input_ = transform_input(input_)
 
     return input_
@@ -39,9 +39,9 @@ def populate_sleep_log(input_):
 
     for guard_id, g_events in input_.items():
         for g_event in g_events:
-            if g_event[0] == 's':
+            if g_event[0] == "s":
                 start = int(g_event[1])
-            if g_event[0] == 'w':
+            if g_event[0] == "w":
                 stop = int(g_event[1])
                 sleep_log[index][start:stop] += 1
         index += 1
@@ -78,5 +78,5 @@ def main():
     solve_part2(input_)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

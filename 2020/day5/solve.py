@@ -13,9 +13,9 @@ def transform_input(input_):
 
 def read_input():
     dir_path = dirname(realpath(__file__))
-    with open(join(dir_path, 'input.txt'), 'r') as f:
+    with open(join(dir_path, "input.txt"), "r") as f:
         input_ = f.read()
-        
+
     input_ = transform_input(input_)
 
     return input_
@@ -24,13 +24,13 @@ def read_input():
 def find_row(row_code):
     range_ = list(range(128))
     for c in row_code:
-        if c == 'F':
+        if c == "F":
             start = 0
             end = int(len(range_) / 2)
-        elif c == 'B':
+        elif c == "B":
             start = int(len(range_) / 2)
             end = int(len(range_))
-            
+
         range_ = range_[start:end]
 
     return range_[0]
@@ -39,10 +39,10 @@ def find_row(row_code):
 def find_col(col_code):
     range_ = list(range(8))
     for c in col_code:
-        if c == 'L':
+        if c == "L":
             start = 0
             end = int(len(range_) / 2)
-        elif c == 'R':
+        elif c == "R":
             start = int(len(range_) / 2)
             end = int(len(range_))
 
@@ -53,7 +53,7 @@ def find_col(col_code):
 
 def gen_seat_ids(passes):
     seat_ids = []
-   
+
     for pass_ in passes:
         row_code = pass_[0:7]
         col_code = pass_[7:]
@@ -72,8 +72,8 @@ def solve_part1(input_):
 
 
 def gen_all_passes():
-    row_combinations = [''.join(x) for x in itertools.product('FB', repeat=7)]
-    col_combinations = [''.join(x) for x in itertools.product('RL', repeat=3)]
+    row_combinations = ["".join(x) for x in itertools.product("FB", repeat=7)]
+    col_combinations = ["".join(x) for x in itertools.product("RL", repeat=3)]
 
     all_passes = []
     for rc in row_combinations:
@@ -86,7 +86,7 @@ def gen_all_passes():
 def solve_part2(input_):
     all_passes = gen_all_passes()
     all_ids = gen_seat_ids(all_passes)
-    
+
     seat_ids = gen_seat_ids(input_)
 
     missing = []
@@ -107,5 +107,5 @@ def main():
     solve_part2(input_)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

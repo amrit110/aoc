@@ -2,12 +2,12 @@ import math
 
 
 def read_input(input_file):
-    with open(input_file, 'r') as f:
+    with open(input_file, "r") as f:
         return f.read().splitlines()
 
 
 def solve_part1():
-    masses = read_input('input.txt')
+    masses = read_input("input.txt")
     s = 0
     for mass in masses:
         s += (math.floor(float(mass) / 3)) - 2
@@ -24,7 +24,7 @@ def solve_part2():
 
         return tf
 
-    masses = read_input('input.txt')
+    masses = read_input("input.txt")
     s = 0
     for mass in masses:
         s += compute_fuel(mass)
@@ -32,6 +32,6 @@ def solve_part2():
     return s
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(solve_part1())
     print(solve_part2())

@@ -21,3 +21,4 @@ wrapt==1.12.1
 matplotlib==3.3.3
 requests==2.25.0
 advent-of-code-data==0.8.5
+flake8==3.8.4
