@@ -5,6 +5,7 @@ from os.path import dirname, realpath, join
 
 def transform_input(input_):
     # custom transform for the day
+    input_ = input_.split()
 
     return input_
 
@@ -17,11 +18,22 @@ def read_input():
 
 
 def solve_part1(input_):
-    pass
+    num_valid = 0
+    for passphrases in input_:
+        if len(set(passphrases)) == len(passphrases):
+            num_valid += 1
+
+    print(num_valid)
 
 
 def solve_part2(input_):
-    pass
+    num_valid = 0
+    for passphrases in input_:
+        passphrases = [''.join(sorted(passphrase)) for passphrase in passphrases] 
+        if len(set(passphrases)) == len(passphrases):
+            num_valid += 1
+
+    print(num_valid)
 
 
 def main():
