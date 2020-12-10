@@ -29,7 +29,7 @@ def solve_part1(input_):
 def solve_part2(input_):
     num_valid = 0
     for passphrases in input_:
-        passphrases = [''.join(sorted(passphrase)) for passphrase in passphrases] 
+        passphrases = ["".join(sorted(passphrase)) for passphrase in passphrases]
         if len(set(passphrases)) == len(passphrases):
             num_valid += 1
 
