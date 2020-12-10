@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from os.path import dirname, realpath, join
+import time
 
 
 def transform_input(input_):
@@ -25,8 +26,15 @@ def solve_part2(input_):
 
 
 def main():
+    start_time = time.time()
     solve_part1(read_input())
+    elapsed_time = (time.time() - start_time) * 1e3
+    print(f"Time elapsed for part 1: {elapsed_time} ms")
+
+    start_time = time.time()
     solve_part2(read_input())
+    elapsed_time = (time.time() - start_time) * 1e3
+    print(f"Time elapsed for part 2: {elapsed_time} ms")
 
 
 if __name__ == "__main__":
