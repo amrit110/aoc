@@ -29,20 +29,17 @@ def solve_part1(input_):
 
 def solve_part2(input_):
     num_valid = 0
-    sides_accumulate = []
-    for i, sides in enumerate(input_):
-        if (i + 1) % 4 == 0:
-            sides_triangles = list(zip(*sides_accumulate))
-            for sides_triangle in sides_triangles:
-                if (
-                    (sides_triangle[0] // 100)
-                    == (sides_triangle[1] // 100)
-                    == (sides_triangle[2] // 100)
-                ):
-                    num_valid += 1
-            sides_accumulate = []
-        else:
-            sides_accumulate.append(sides)
+    nums_list = []
+    for nums in input_:
+        nums_list.append(nums)
+    
+    num_nums = len(nums_list)
+    for i in range(0, num_nums, 3):
+        triangles = list(zip(*nums_list[i:i+3]))
+        for triangle in triangles:
+            triangle = sorted(triangle)
+            if triangle[0] + triangle[1] > triangle[2]:
+                num_valid += 1
 
     print(num_valid)
 
