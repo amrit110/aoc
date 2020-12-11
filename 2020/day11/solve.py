@@ -32,10 +32,8 @@ def run_sim(seats, adj_lookup, th):
                 updated_seats[z] = sum(seats[adj] for adj in adjs) < th
             else:
                 updated_seats[z] = not any(seats[adj] for adj in adjs)
-
             if updated_seats[z] != seats[z]:
                 is_any_seat_updated = True
-
         seats = updated_seats
         count_occ = sum(seats.values())
         if not is_any_seat_updated:
