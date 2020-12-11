@@ -23,8 +23,8 @@ def read_input():
 
 
 def run_sim(seats, adj_lookup, th):
-    prev_count_occ = 0
     while True:
+        is_any_seat_updated = False
         updated_seats = {}
         for z, occ in seats.items():
             adjs = adj_lookup[z]
@@ -33,11 +33,13 @@ def run_sim(seats, adj_lookup, th):
             else:
                 updated_seats[z] = not any(seats[adj] for adj in adjs)
 
+            if updated_seats[z] != seats[z]:
+                is_any_seat_updated = True
+
         seats = updated_seats
         count_occ = sum(seats.values())
-        if count_occ == prev_count_occ:
+        if not is_any_seat_updated:
             return count_occ
-        prev_count_occ = count_occ
 
 
 def solve_part1(seats, floor):
