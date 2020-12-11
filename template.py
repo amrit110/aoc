@@ -5,6 +5,7 @@ import time
 
 
 def transform_input(input_):
+    input_ = input_.strip()
     # custom transform for the day
 
     return input_
