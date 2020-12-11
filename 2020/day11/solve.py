@@ -35,9 +35,8 @@ def run_sim(seats, adj_lookup, th):
             if updated_seats[z] != seats[z]:
                 is_any_seat_updated = True
         seats = updated_seats
-        count_occ = sum(seats.values())
         if not is_any_seat_updated:
-            return count_occ
+            return sum(seats.values())
 
 
 def solve_part1(seats, floor):
