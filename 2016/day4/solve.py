@@ -41,9 +41,7 @@ def solve_part1(input_):
 
 def solve_part2(input_):
     for (name, id_, checksum) in input_:
-        idxs = [len(n) for n in name]
         name = list("".join(name))
-        len_ = len(name)
         for i, _ in enumerate(name):
             name[i] = chr((((ord(name[i]) - 97) + id_) % 26) + 97)
 
