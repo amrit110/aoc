@@ -34,30 +34,18 @@ def solve_part1(input_):
     print(num_1_diffs * num_3_diffs)
 
 
-def count_num_paths(joltages):
-    paths = defaultdict(int)
-    paths[joltages[1]] = 1
-    end_idx = len(joltages)
-
-    for i in range(1, len(joltages) - 1):
-        jo_curr = joltages[i]
-        j = 1
-        while joltages[i] - joltages[i + j] <= 3:
-            jo_next = joltages[i + j]
-            paths[jo_next] += paths[jo_curr]
-            j += 1
-            if (i + j) == end_idx:
-                break
-
-    return paths[0]
-
-
 def solve_part2(input_):
-    joltages = sorted(list([v for v in input_]))[::-1] + [0]
-    joltages = [joltages[0] + 3] + joltages
-    num_paths = count_num_paths(joltages)
+    jo = [0] + sorted(list([v for v in input_]))
+    jo = jo + [max(jo) + 3]
+    paths = defaultdict(int)
+    paths[0] = 1
+    for i in range(1, len(jo)):
+        for j in range(i)[::-1]:
+            if jo[i] - jo[j] > 3:
+                break
+            paths[i] += paths[j]
 
-    print(num_paths)
+    print(paths[len(jo) - 1])
 
 
 def main():
