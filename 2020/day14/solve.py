@@ -14,7 +14,7 @@ def transform_input(line):
     if left == "mask":
         return right
     else:
-        mem_addr = int(re.match(".*?\\[(.*)].*", left).group(1))
+        mem_addr = int(re.match(r".*?\[(.*)].*", left).group(1))
         val = int(right)
         return mem_addr, val
 
