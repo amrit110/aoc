@@ -5,7 +5,7 @@
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 ## Template solution
-To quickstart or bootstrap a solution script in python, 
+To quickstart or bootstrap a solution script in python, (and optionally in C++ using `--cpp` flag)
 
 ```bash
 ./bootstrap.py -y <year> -d <day>
