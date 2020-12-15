@@ -1,3 +1,4 @@
 venv
 board.json
 .DS_Store
+*.out
