@@ -25,6 +25,7 @@ def get_nth_spoken(input_, n):
     input_ = [int(n) for n in input_]
     input_sz = len(input_)
     mem = defaultdict(list)
+    last_spoken = None
     for i in count(1):
         if i <= input_sz:
             new_spoken = input_[i - 1]
