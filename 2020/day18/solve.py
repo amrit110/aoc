@@ -31,10 +31,10 @@ class fakeint(int):
         return fakeint(int(self) * x)
 
 
-def parse_expr(s, replace_op="-"):
-    s = re.sub(r"(\d+)", r"fakeint(\1)", s)
-    s = s.replace("*", replace_op)
-    return eval(s)
+def parse_expr(expr: str, replace_op: str = "-"):
+    expr = re.sub(r"(\d+)", r"fakeint(\1)", expr)
+    expr = expr.replace("*", replace_op)
+    return eval(expr)
 
 
 def solve_part1(input_):
