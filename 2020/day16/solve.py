@@ -2,7 +2,6 @@
 
 from os.path import dirname, realpath, join
 import time
-from collections import defaultdict
 import re
 from scipy.sparse import csr_matrix
 from scipy.sparse.csgraph import maximum_bipartite_matching
@@ -26,7 +25,7 @@ def process_input(input_):
     lines = [line for line in input_]
     line_breaks = [idx for idx, line in enumerate(lines) if line == ""]
     ranges = [
-        list(map(int, re.findall("\d+", line))) for line in lines[: line_breaks[0]]
+        list(map(int, re.findall(r"\d+", line))) for line in lines[: line_breaks[0]]
     ]
     your_ticket = [int(v) for v in lines[line_breaks[1] - 1].split(",")]
     nearby_tickets = [
