@@ -22,3 +22,4 @@ matplotlib==3.3.3
 requests==2.25.0
 advent-of-code-data==0.8.5
 flake8==3.8.4
+scipy==1.5.4
