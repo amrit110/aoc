@@ -5,6 +5,7 @@ import time
 import re
 from scipy.sparse import csr_matrix
 from scipy.sparse.csgraph import maximum_bipartite_matching
+from math import prod
 
 
 def transform_input(input_):
@@ -67,11 +68,7 @@ def solve_part2(input_):
         for i in range(20)
     ]
     perm = maximum_bipartite_matching(csr_matrix(valids_r))
-    dep_field_vals = [your_ticket[idx] for idx in perm][:6]
-    s = 1
-    for v in dep_field_vals:
-        s *= v
-    print(s)
+    print(prod([your_ticket[idx] for idx in perm][:6]))
 
 
 def main():
