@@ -50,7 +50,7 @@ def match(foods):
 
 def solve_part1(input_):
     ingredient_to_allergens, count = match(input_)
-    print(sum(map(count.get, count - ingredient_to_allergens.keys())))
+    print(sum(map(count.get, count.keys() - ingredient_to_allergens.keys())))
 
 
 def solve_part2(input_):
