@@ -41,8 +41,6 @@ def play_combat(p1_deck, p2_deck, recursive=False):
                 winner = p1_deck
             elif p2_card > p1_card:
                 winner = p2_deck
-            else:
-                assert False, p1_card
         winner.append(p1_card if winner is p1_deck else p2_card)
         winner.append(p1_card if winner is not p1_deck else p2_card)
     return 1 if winner is p1_deck else 2, winner
