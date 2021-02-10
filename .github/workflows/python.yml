@@ -34,4 +34,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          ./github/workflows/trigger_timer.sh
+          ./.github/workflows/trigger_timer.sh
