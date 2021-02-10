@@ -24,5 +24,6 @@ jobs:
           --header 'Accept: application/vnd.github.v3+json' \	
           --data '{	
             "event_type": "aoc_timer",
-            "client_payload": { "added_files": ""}	
-            }'
+            "client_payload": ""
+            }' \
+          --fail
