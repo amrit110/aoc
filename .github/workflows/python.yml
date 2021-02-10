@@ -29,14 +29,8 @@ jobs:
   trigger_timer:
     runs-on: ubuntu-20.04 
     steps:
-<<<<<<< HEAD
       - uses: actions/checkout@v2
       - name: Trigger timer
-=======
-    - uses: actions/checkout@v2
-    - name: Trigger timer
-    - shell: bash
->>>>>>> c58e809f0513dad3974a7e944df8ec600b070c7e
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
