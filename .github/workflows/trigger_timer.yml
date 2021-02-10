@@ -1,4 +1,4 @@
-name: Trigger timer
+name: Timer
 
 on:
   push:
@@ -10,8 +10,8 @@ jobs:
   trigger_timer:
     runs-on: ubuntu-20.04 
     steps:
-      - uses: actions/checkout@v2
       - name: Check added/modified files
-      - uses: lots0logs/gh-action-get-changed-files@2.1.4
+        uses: actions/checkout@v2
+        uses: lots0logs/gh-action-get-changed-files@2.1.4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
