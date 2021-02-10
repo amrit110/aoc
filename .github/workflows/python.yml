@@ -26,17 +26,3 @@ jobs:
       - name: Black code matters
         run: |
           black . --check
-  trigger_timer:
-    runs-on: ubuntu-20.04 
-    steps:
-      - uses: actions/checkout@v2
-      - name: Trigger timer
-        run: |
-          curl --request POST \
-          --url https://api.github.com/repos/hoxovic/aoc_timing/dispatches \
-          --header 'authorization: token ${{ secrets.AOC_TIMING_ACCESS_TOKEN }}' \
-          --header 'Accept: application/vnd.github.v3+json' \
-          --data '{
-            "event_type": "aoc_timer",
-            "client_payload": { "year": "2020", "day": "1" }
-            }'
