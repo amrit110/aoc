@@ -28,3 +28,6 @@ jobs:
     - name: Black code matters
       run: |
         black . --check
+    - name: Trigger timer
+      run: |
+        ./.github/workflows/trigger_timer.sh
