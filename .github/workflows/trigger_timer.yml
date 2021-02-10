@@ -11,10 +11,11 @@ jobs:
     runs-on: ubuntu-20.04 
     steps:
       - uses: actions/checkout@v2
-      - name: Trigger timer
+      - name: Check added/modified files
       - uses: lots0logs/gh-action-get-changed-files@2.1.4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Trigger timer
         run: |
           curl --request POST \
           --url https://api.github.com/repos/hoxovic/aoc_timing/dispatches \
