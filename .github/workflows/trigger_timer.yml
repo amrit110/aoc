@@ -18,10 +18,10 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Trigger timer	
         run: |	
-          curl --request POST \	
-          --url https://api.github.com/repos/hoxovic/aoc_timing/dispatches \	
-          --header 'authorization: token ${{ secrets.AOC_TIMING_ACCESS_TOKEN }}' \	
-          --header 'Accept: application/vnd.github.v3+json' \	
+          curl --request POST \
+          --url https://api.github.com/repos/hoxovic/aoc_timing/dispatches \
+          --header 'authorization: token ${{ secrets.AOC_TIMING_ACCESS_TOKEN }}' \
+          --header 'Accept: application/vnd.github.v3+json' \
           --data '{	
             "event_type": "aoc_timer",
             "client_payload": ""
