@@ -1,0 +1,26 @@
+name: Trigger timer
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  trigger_timer:
+    runs-on: ubuntu-20.04 
+    steps:
+      - uses: actions/checkout@v2
+      - name: Trigger timer
+      - uses: lots0logs/gh-action-get-changed-files@2.1.4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl --request POST \
+          --url https://api.github.com/repos/hoxovic/aoc_timing/dispatches \
+          --header 'authorization: token ${{ secrets.AOC_TIMING_ACCESS_TOKEN }}' \
+          --header 'Accept: application/vnd.github.v3+json' \
+          --data '{
+            "event_type": "aoc_timer",
+            "client_payload": { "added_files": ${{ outputs.added }}}
+            }'
