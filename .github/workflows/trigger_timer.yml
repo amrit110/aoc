@@ -12,6 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Check added/modified files
+        id: changed
         uses: lots0logs/gh-action-get-changed-files@2.1.4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -23,5 +24,5 @@ jobs:
           --header 'Accept: application/vnd.github.v3+json' \	
           --data '{	
             "event_type": "aoc_timer",	
-            "client_payload": { "added_files": ${{ outputs.added }}}	
+            "client_payload": { "added_files": ${{ steps.changed.outputs.added }}}	
             }' 
