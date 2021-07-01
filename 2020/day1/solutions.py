@@ -1,3 +1,5 @@
+"""Day1, 2020."""
+
 def read_input():
     with open("input.txt", "r") as f:
         input = f.read().splitlines()

@@ -24,6 +24,6 @@ jobs:
           --header 'Accept: application/vnd.github.v3+json' \
           --data '{	
             "event_type": "aoc_timer",
-            "client_payload": { "added_files": ${{ steps.changed.outputs.added }}}
+            "client_payload": { "repo": "amrit110/aoc", "year": ${{ git diff origin/main HEAD | grep -o 202* -m 1 | head -1 }}, "day": ${{ git diff origin/main HEAD | grep -o 'day[0-9]*' -m 1 | head -1}} }
             }' \
           --fail
