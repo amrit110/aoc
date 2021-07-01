@@ -6,7 +6,7 @@ def read_input():
     return input
 
 
-def solve_part1():
+def part1():
     inp = read_input()
     diff = dict()
 
@@ -19,7 +19,7 @@ def solve_part1():
             return
 
 
-def solve_part2():
+def part2():
     inp = read_input()
     t = 2020
     len_ = len(inp)
@@ -35,5 +35,5 @@ def solve_part2():
 
 
 if __name__ == "__main__":
-    solve_part1()
-    solve_part2()
+    part1()
+    part2()
