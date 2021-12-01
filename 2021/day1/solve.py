@@ -33,7 +33,7 @@ def solve_part1(input_):
 def solve_part2(input_):
     count = 0
     nums = [int(num) for num in input_]
-    sums = [sum(nums[idx: idx + 3]) for idx in range(len(nums))]
+    sums = [sum(nums[idx : idx + 3]) for idx in range(len(nums))]
     prev = None
     for s in sums:
         if prev is None:
